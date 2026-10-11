@@ -4,6 +4,8 @@ A cleanroom acceptance harness for CAD-style MCP command surfaces: it proves tha
 
 **Confidence: High (85%)** that replay-based purity/idempotence probing catches the mutation bugs agent loops actually hit; **Medium (65%)** that the bundled demo server resembles your real server's failure modes [estimated].
 
+<p align="center"><img src="docs/demo.gif" alt="demo" width="720"></p>
+
 ## Problem
 
 Agent-driven CAD is spreading via MCP servers, but nobody verifies the *behavioral contract* of the command surface. Two failure classes dominate: a "read-only" query that silently mutates state (an agent replays it and corrupts the drawing), and a mutating command that is not idempotent (an agent retries after a timeout and the part is doubled). Unit tests check features; nothing checks the contract. That is the unguarded half of the MCP pipeline.
